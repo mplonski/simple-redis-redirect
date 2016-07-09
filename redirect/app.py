@@ -14,11 +14,6 @@ from redirect.controller.redis_urls import get_url
 app = Flask(__name__, static_url_path='/static')
 app.config.from_object("conf.config")
 
-logger = logging.getLogger('werkzeug')
-handler = logging.FileHandler(LOGFILE_PATH)
-logger.addHandler(handler)
-app.logger.addHandler(handler)
-
 
 @app.route('/')
 def index():
