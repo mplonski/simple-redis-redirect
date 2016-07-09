@@ -7,7 +7,6 @@ from flask import request
 from flask import url_for
 from werkzeug.utils import redirect
 
-from conf.config import LOGFILE_PATH
 from redirect.controller.redis_urls import get_hash
 from redirect.controller.redis_urls import get_url
 
