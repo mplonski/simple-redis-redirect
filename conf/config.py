@@ -5,8 +5,6 @@ TESTING = True
 
 MODE = os.environ.get('MODE', 'DEV')
 
-SERVER_NAME = '127.0.0.1:8084'
-
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
