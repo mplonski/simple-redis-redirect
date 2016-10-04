@@ -1,8 +1,5 @@
 import os
 
-DEBUG = True
-TESTING = True
-
 MODE = os.environ.get('MODE', 'DEV')
 
 REDIS_HOST = 'localhost'

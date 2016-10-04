@@ -15,12 +15,14 @@ redis_conn = redis.StrictRedis(
 
 
 def generate_random_hash(max_length):
+    """Generate random hash (unique for max_length >= 32)."""
     return str(uuid4()).replace('-', '')[:max_length]
 
 
 def get_hash(url):
+    """Create and return hash for url."""
     _hash = generate_random_hash(HASH_MAX_LENGTH)
-    while redis_conn.get(_hash) is not None:
+    while redis_conn.get(_hash) is not None:  # hash exists in redis
         _hash = generate_random_hash(HASH_MAX_LENGTH)
 
     redis_conn.set(_hash, url)
@@ -28,4 +30,5 @@ def get_hash(url):
 
 
 def get_url(_hash):
+    """Get url for hash."""
     return redis_conn.get(_hash)
